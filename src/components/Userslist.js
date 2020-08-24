@@ -11,9 +11,9 @@ const Userslist = () => {
 
     const state = useSelector(state => state);
     const dispatch = useDispatch();
-    const [pageNumber , changeNumber] = useState(null);
     const params = useParams();
     const history = useHistory();
+    const [pageNumber , changeNumber] = useState(params.pageNumber);
 
     const postList = () => {
         let postNumber = 0;
@@ -68,7 +68,7 @@ const Userslist = () => {
         } else {
             dispatch(fetchUsers(params.pageNumber));
         }
-    }, [pageNumber]);
+    }, [pageNumber , params]);
 
     return (
         <section className="user-posts">
